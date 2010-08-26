@@ -1,53 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE Map>
-<Map bgcolor="transparent" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs">
-
-  <Style name="My Style">
-    <Rule>
-      <!--<PolygonSymbolizer>
-        <CssParameter name="fill">#f2eff9</CssParameter>
-      </PolygonSymbolizer>-->
-      <LineSymbolizer>
-        <CssParameter name="stroke">#9999ff</CssParameter>
-        <CssParameter name="stroke-width">1.0</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-  </Style>
-
-<Style name="Lighter">
-    <Rule>
-      <!--<PolygonSymbolizer>
-        <CssParameter name="fill">#f2eff9</CssParameter>
-      </PolygonSymbolizer>-->
-      <LineSymbolizer>
-        <CssParameter name="stroke">#efefef</CssParameter>
-        <CssParameter name="stroke-width">0.5</CssParameter>
-      </LineSymbolizer>
-    </Rule>
-  </Style>
-
-  <Layer name="streets" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-    <StyleName>My Style</StyleName>
-    <Datasource>
-      <Parameter name="type">shape</Parameter>
-      <Parameter name="file">/home/tylor/Mapping/streets/public_streets_wgs84.shp</Parameter>
-    </Datasource>
-  </Layer>
- <!-- <Layer name="streets" srs="+proj=utm +zone=10 +ellps=GRS80 +datum=NAD83 +units=m +no_defs">
-    <StyleName>My Style</StyleName>
-    <Datasource>
-      <Parameter name="type">shape</Parameter>
-      <Parameter name="file">/home/tylor/Mapping/streets/public_streets.shp</Parameter>
-    </Datasource>
-  </Layer> -->
-
- <Layer name="world" srs="+proj=utm +zone=10 +datum=NAD83">
-    <StyleName>Lighter</StyleName>
-    <Datasource>
-      <Parameter name="type">shape</Parameter>
-      <Parameter name="file">/home/tylor/Mapping/contour/10-metre_contour_lines.shp</Parameter>
-    </Datasource>
-  </Layer>
-
+<!-- Easy way to debug and launch is with TileLite python tile server (http://code.google.com/p/mapnik-utils/): liteserv.py vancouver.xml -->
+<!-- OSM with Mapnik: http://wiki.openstreetmap.org/wiki/Mapnik , http://kjs.me.uk/cms/index.php/openstreetmap/54-mapnik-quickstart -->
+<!-- BC Map data: http://downloads.cloudmade.com/north_america/canada/british_columbia#downloads_breadcrumbs -->
+<!-- Public streets: http://data.vancouver.ca/datacatalogue/index.htm -->
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +over +no_defs" bgcolor="transparent">
+<!-- Proper srs comes from setting a mercator 900913 projection and then allowing QGIS to do 'on the fly' transformations -->
+    <Style name="british_columbia_coastline_style">
+        <Rule>
+            <LineSymbolizer>
+                <CssParameter name="stroke">rgb(50,50,50)</CssParameter>
+                <CssParameter name="stroke-width">0.96</CssParameter>
+                <CssParameter name="stroke-linejoin">bevel</CssParameter>
+                <CssParameter name="stroke-linecap">square</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Style name="public_streets_style">
+        <Rule>
+            <LineSymbolizer>
+                <CssParameter name="stroke">rgb(159,159,159)</CssParameter>
+                <CssParameter name="stroke-width">0.96</CssParameter>
+                <CssParameter name="stroke-linejoin">bevel</CssParameter>
+                <CssParameter name="stroke-linecap">square</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Layer name="public_streets" srs="+init=epsg:26910">
+        <StyleName>public_streets_style</StyleName>
+        <Datasource>
+            <Parameter name="file">./streets/public_streets.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="british_columbia_coastline" srs="+init=epsg:4326">
+        <StyleName>british_columbia_coastline_style</StyleName>
+        <Datasource>
+            <Parameter name="file">./bc/british_columbia_coastline.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
 </Map>
+
+<!-- nik2img.py mapnik.xml out.png -d 1014 267 -e -13888084.0994 6278248.88666 -13604801.4246 6352428.63848 -->
+<!-- <MinScaleDenominator>257730425.73</MinScaleDenominator> -->
 

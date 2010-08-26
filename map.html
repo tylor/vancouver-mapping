@@ -4,16 +4,16 @@
     <script
     src="http://openlayers.org/api/OpenLayers.js"></script>
     </head>
-    <body style="background: green;">
+    <body style="background: -moz-linear-gradient(left 20deg, #000000, #000000, #303050);">
       <div style="width:100%; height:100%" id="map"></div>
       <script defer="defer" type="text/javascript">
         var map = new OpenLayers.Map('map');
-        var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS", "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
+        // var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS", "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
 	var tiles = new OpenLayers.Layer.OSM("Mapnik", "http://macbox:8000/${z}/${x}/${y}.png");
         map.addLayer(tiles);
-        // map.zoomToMaxExtent();
-	// map.setCenter(new OpenLayers.LonLat(-122, 49), 2);
-	map.setCenter(new OpenLayers.LonLat(-123.00,49.25),10);
+	// map.setCenter(new OpenLayers.LonLat(-123.00,49.25),10);
+	map.setCenter(new OpenLayers.LonLat(-13706084.757874,6322968.0017593),10); // Close but not quite right yet. Might work with Drupal since it might do this conversion.
+	// More: http://trac.openlayers.org/wiki/SphericalMercator
       </script>
 </body>
 </html>
