@@ -1,10 +1,10 @@
 <html>
 <head>
-  <title>OpenLayers Example</title>
+  <title>Vancouver</title>
     <script
     src="http://openlayers.org/api/OpenLayers.js"></script>
     </head>
-    <body style="background: -moz-linear-gradient(left 20deg, #000000, #000000, #303050);">
+    <body style="background: url(denim.jpg); margin:0; padding:0;">
       <div style="width:100%; height:100%" id="map"></div>
       <script defer="defer" type="text/javascript">
         var map = new OpenLayers.Map('map');
@@ -12,7 +12,7 @@
 	var tiles = new OpenLayers.Layer.OSM("Mapnik", "http://macbox:8000/${z}/${x}/${y}.png");
         map.addLayer(tiles);
 	// map.setCenter(new OpenLayers.LonLat(-123.00,49.25),10);
-	map.setCenter(new OpenLayers.LonLat(-13706084.757874,6322968.0017593),10); // Close but not quite right yet. Might work with Drupal since it might do this conversion.
+	map.setCenter(new OpenLayers.LonLat(-13706371.396706,6321465.5364224),15); // Close but not quite right yet. Might work with Drupal since it might do this conversion.
 	// More: http://trac.openlayers.org/wiki/SphericalMercator
       </script>
 </body>

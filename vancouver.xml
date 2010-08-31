@@ -3,13 +3,47 @@
 <!-- OSM with Mapnik: http://wiki.openstreetmap.org/wiki/Mapnik , http://kjs.me.uk/cms/index.php/openstreetmap/54-mapnik-quickstart -->
 <!-- BC Map data: http://downloads.cloudmade.com/north_america/canada/british_columbia#downloads_breadcrumbs -->
 <!-- Public streets: http://data.vancouver.ca/datacatalogue/index.htm -->
-<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +over +no_defs" bgcolor="transparent">
 <!-- Proper srs comes from setting a mercator 900913 projection and then allowing QGIS to do 'on the fly' transformations -->
-    <Style name="british_columbia_coastline_style">
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +over +no_defs" bgcolor="transparent">
+    <Style name="Local Areas_region_style">
+        <Rule>
+            <PolygonSymbolizer>
+                <CssParameter name="fill">rgb(20,20,20)</CssParameter>
+                <CssParameter name="gamma">0.7</CssParameter>
+            </PolygonSymbolizer>
+            <LineSymbolizer>
+                <CssParameter name="stroke-width">0.96</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Style name="building_footprints_1999_style">
+        <Rule>
+            <PolygonSymbolizer>
+                <CssParameter name="fill">rgb(11,11,11)</CssParameter>
+                <CssParameter name="gamma">0.7</CssParameter>
+            </PolygonSymbolizer>
+            <LineSymbolizer>
+                <CssParameter name="stroke">rgb(65,65,65)</CssParameter>
+                <CssParameter name="stroke-width">0.96</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Style name="park_polygons_style">
+        <Rule>
+            <PolygonSymbolizer>
+                <CssParameter name="fill">rgb(13,84,5)</CssParameter>
+                <CssParameter name="gamma">0.7</CssParameter>
+            </PolygonSymbolizer>
+            <LineSymbolizer>
+                <CssParameter name="stroke-width">0.96</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Style name="public_streets1_style">
         <Rule>
             <LineSymbolizer>
-                <CssParameter name="stroke">rgb(50,50,50)</CssParameter>
-                <CssParameter name="stroke-width">0.96</CssParameter>
+                <CssParameter name="stroke">rgb(182,182,182)</CssParameter>
+                <CssParameter name="stroke-width">1.16</CssParameter>
                 <CssParameter name="stroke-linejoin">bevel</CssParameter>
                 <CssParameter name="stroke-linecap">square</CssParameter>
             </LineSymbolizer>
@@ -18,29 +52,43 @@
     <Style name="public_streets_style">
         <Rule>
             <LineSymbolizer>
-                <CssParameter name="stroke">rgb(159,159,159)</CssParameter>
+                <CssParameter name="stroke">rgb(102,102,102)</CssParameter>
                 <CssParameter name="stroke-width">0.96</CssParameter>
                 <CssParameter name="stroke-linejoin">bevel</CssParameter>
                 <CssParameter name="stroke-linecap">square</CssParameter>
             </LineSymbolizer>
         </Rule>
     </Style>
-    <Layer name="public_streets" srs="+init=epsg:26910">
-        <StyleName>public_streets_style</StyleName>
+    <Layer name="Local Areas_region" srs="+init=epsg:26910">
+        <StyleName>Local Areas_region_style</StyleName>
         <Datasource>
-            <Parameter name="file">./streets/public_streets.shp</Parameter>
+            <Parameter name="file">/home/tylor/Downloads/localAreaBoundary/Local Areas_region.shp</Parameter>
             <Parameter name="type">shape</Parameter>
         </Datasource>
     </Layer>
-    <Layer name="british_columbia_coastline" srs="+init=epsg:4326">
-        <StyleName>british_columbia_coastline_style</StyleName>
+    <Layer name="building_footprints_1999" srs="+init=epsg:26910">
+        <StyleName>building_footprints_1999_style</StyleName>
         <Datasource>
-            <Parameter name="file">./bc/british_columbia_coastline.shp</Parameter>
+            <Parameter name="file">/home/tylor/Downloads/building_footprints_1999_shp/building_footprints_1999.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="park_polygons" srs="+init=epsg:26910">
+        <StyleName>park_polygons_style</StyleName>
+        <Datasource>
+            <Parameter name="file">/home/tylor/Downloads/park_polygons_shp/park_polygons.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="public_streets" srs="+init=epsg:26910">
+        <StyleName>public_streets_style</StyleName>
+        <StyleName>public_streets1_style</StyleName>
+        <Datasource>
+            <Parameter name="file">/home/tylor/Downloads/shape_city_streets/public_streets.shp</Parameter>
             <Parameter name="type">shape</Parameter>
         </Datasource>
     </Layer>
 </Map>
 
-<!-- nik2img.py mapnik.xml out.png -d 1014 267 -e -13888084.0994 6278248.88666 -13604801.4246 6352428.63848 -->
-<!-- <MinScaleDenominator>257730425.73</MinScaleDenominator> -->
+<!-- nik2img.py mapnik.xml out.png -d 1018 275 -e -13713738.0202 6320431.09871 -13698107.9849 6324630.90152 -->
 
