@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Easy way to debug and launch is with TileLite python tile server (http://code.google.com/p/mapnik-utils/): liteserv.py vancouver.xml -->
+<!-- Easy way to debug and launch is with TileLite python tile server (http://code.google.com/p/mapnik-utils/): liteserv.py -b 512 vancouver.xml -->
 <!-- OSM with Mapnik: http://wiki.openstreetmap.org/wiki/Mapnik , http://kjs.me.uk/cms/index.php/openstreetmap/54-mapnik-quickstart -->
 <!-- BC Map data: http://downloads.cloudmade.com/north_america/canada/british_columbia#downloads_breadcrumbs -->
 <!-- Public streets: http://data.vancouver.ca/datacatalogue/index.htm -->
@@ -62,21 +62,21 @@
     <Layer name="Local Areas_region" srs="+init=epsg:26910">
         <StyleName>Local Areas_region_style</StyleName>
         <Datasource>
-            <Parameter name="file">/home/tylor/Downloads/localAreaBoundary/Local Areas_region.shp</Parameter>
+            <Parameter name="file">./data/localAreaBoundary/Local Areas_region.shp</Parameter>
             <Parameter name="type">shape</Parameter>
         </Datasource>
     </Layer>
     <Layer name="building_footprints_1999" srs="+init=epsg:26910">
         <StyleName>building_footprints_1999_style</StyleName>
         <Datasource>
-            <Parameter name="file">/home/tylor/Downloads/building_footprints_1999_shp/building_footprints_1999.shp</Parameter>
+            <Parameter name="file">./data/building_footprints_1999_shp/building_footprints_1999.shp</Parameter>
             <Parameter name="type">shape</Parameter>
         </Datasource>
     </Layer>
     <Layer name="park_polygons" srs="+init=epsg:26910">
         <StyleName>park_polygons_style</StyleName>
         <Datasource>
-            <Parameter name="file">/home/tylor/Downloads/park_polygons_shp/park_polygons.shp</Parameter>
+            <Parameter name="file">./data/park_polygons_shp/park_polygons.shp</Parameter>
             <Parameter name="type">shape</Parameter>
         </Datasource>
     </Layer>
@@ -84,7 +84,7 @@
         <StyleName>public_streets_style</StyleName>
         <StyleName>public_streets1_style</StyleName>
         <Datasource>
-            <Parameter name="file">/home/tylor/Downloads/shape_city_streets/public_streets.shp</Parameter>
+            <Parameter name="file">./data/shape_city_streets/public_streets.shp</Parameter>
             <Parameter name="type">shape</Parameter>
         </Datasource>
     </Layer>

@@ -4,12 +4,12 @@
     <script
     src="http://openlayers.org/api/OpenLayers.js"></script>
     </head>
-    <body style="background: url(denim.jpg); margin:0; padding:0;">
+    <body style="background: #595fdd url(9x9_transparent.png); margin:0; padding:0;">
       <div style="width:100%; height:100%" id="map"></div>
       <script defer="defer" type="text/javascript">
         var map = new OpenLayers.Map('map');
         // var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS", "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
-	var tiles = new OpenLayers.Layer.OSM("Mapnik", "http://macbox:8000/${z}/${x}/${y}.png");
+	var tiles = new OpenLayers.Layer.OSM("Mapnik", "http://localhost:8000/${z}/${x}/${y}.png");
         map.addLayer(tiles);
 	// map.setCenter(new OpenLayers.LonLat(-123.00,49.25),10);
 	map.setCenter(new OpenLayers.LonLat(-13706371.396706,6321465.5364224),15); // Close but not quite right yet. Might work with Drupal since it might do this conversion.

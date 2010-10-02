@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +over +no_defs" bgcolor="transparent">
+    <Style name="Local Areas_region_style">
+        <Rule>
+            <PolygonSymbolizer>
+                <CssParameter name="fill">rgb(255,255,255)</CssParameter>
+                <CssParameter name="gamma">0.7</CssParameter>
+            </PolygonSymbolizer>
+            <LineSymbolizer>
+                <CssParameter name="stroke">rgb(0,0,0)</CssParameter>
+                <CssParameter name="stroke-width">1.16</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Style name="building_footprints_1999_style">
+        <Rule>
+            <PolygonSymbolizer>
+                <CssParameter name="fill">rgb(223,223,223)</CssParameter>
+                <CssParameter name="gamma">0.7</CssParameter>
+            </PolygonSymbolizer>
+            <LineSymbolizer>
+                <CssParameter name="stroke">rgb(255,255,255)</CssParameter>
+                <CssParameter name="stroke-width">0.8</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Style name="public_streets_style">
+        <Rule>
+            <LineSymbolizer>
+                <CssParameter name="stroke">rgb(0,0,0)</CssParameter>
+                <CssParameter name="stroke-width">0.96</CssParameter>
+                <CssParameter name="stroke-linejoin">bevel</CssParameter>
+                <CssParameter name="stroke-linecap">square</CssParameter>
+            </LineSymbolizer>
+        </Rule>
+    </Style>
+    <Layer name="Local Areas_region" srs="+init=epsg:26910">
+        <StyleName>Local Areas_region_style</StyleName>
+        <Datasource>
+            <Parameter name="file">./data/localAreaBoundary/Local Areas_region.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="building_footprints_1999" srs="+init=epsg:26910">
+        <StyleName>building_footprints_1999_style</StyleName>
+        <Datasource>
+            <Parameter name="file">./data/building_footprints_1999_shp/building_footprints_1999.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+    <Layer name="public_streets" srs="+init=epsg:26910">
+        <StyleName>public_streets_style</StyleName>
+        <Datasource>
+            <Parameter name="file">./data/shape_city_streets/public_streets.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+</Map>
+
+<!-- nik2img.py mapnik.xml out.png -d 1018 314 -e -13713438.2154 6320601.16451 -13699620.1714 6324844.50085 -->
+

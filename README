@@ -1,1 +1,7 @@
 This is some configuration files used to create a nice Vancouver map using Open Data and Mapnik.
+
+Data used:
+- Local area boundary data: http://data.vancouver.ca/datacatalogue/localAreaBoundary.htm
+- Building Footprints 1999: http://data.vancouver.ca/datacatalogue/buildingFootprint1999.htm
+- Parks (polygon features): http://data.vancouver.ca/datacatalogue/parks.htm
+- City streets package: http://data.vancouver.ca/datacatalogue/cityStreets.htm
