@@ -1,0 +1,29 @@
+<Map bgcolor="transparent" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs">
+    <Style name="polygon style 1">
+        <Rule><PolygonSymbolizer><CssParameter name="fill">#ffffff</CssParameter><CssParameter name="fill-opacity">0.7</CssParameter></PolygonSymbolizer></Rule>
+        </Style>
+    <Layer name="layer 4" srs="+init=epsg:26910" status="on">
+        <StyleName>polygon style 1</StyleName>
+        <Datasource>
+            <Parameter name="file">./data/localAreaBoundary/Local Areas_region.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+    <Style name="line style 6">
+        <Rule><MaxScaleDenominator>24999</MaxScaleDenominator><Filter>not [USE] = 'Arterial'</Filter><LineSymbolizer><CssParameter name="stroke">#000000</CssParameter><CssParameter name="stroke-linecap">round</CssParameter><CssParameter name="stroke-linejoin">round</CssParameter><CssParameter name="stroke-opacity">0.7</CssParameter><CssParameter name="stroke-width">3.0</CssParameter></LineSymbolizer></Rule>
+        <Rule><MaxScaleDenominator>24999</MaxScaleDenominator><Filter>[USE] = 'Arterial'</Filter><LineSymbolizer><CssParameter name="stroke">#000000</CssParameter><CssParameter name="stroke-linecap">round</CssParameter><CssParameter name="stroke-linejoin">round</CssParameter><CssParameter name="stroke-opacity">1.0</CssParameter><CssParameter name="stroke-width">5.0</CssParameter></LineSymbolizer></Rule>
+        <Rule><MinScaleDenominator>25000</MinScaleDenominator><Filter>not [USE] = 'Arterial'</Filter><LineSymbolizer><CssParameter name="stroke">#000000</CssParameter><CssParameter name="stroke-linecap">round</CssParameter><CssParameter name="stroke-linejoin">round</CssParameter><CssParameter name="stroke-width">3.0</CssParameter></LineSymbolizer></Rule>
+        <Rule><MinScaleDenominator>25000</MinScaleDenominator><Filter>[USE] = 'Arterial'</Filter><LineSymbolizer><CssParameter name="stroke">#000000</CssParameter><CssParameter name="stroke-linecap">round</CssParameter><CssParameter name="stroke-linejoin">round</CssParameter><CssParameter name="stroke-width">5.0</CssParameter></LineSymbolizer></Rule>
+        </Style>
+    <Style name="text style 8 (HBLOCK)">
+        <Rule><MaxScaleDenominator>24999</MaxScaleDenominator><Filter>[USE] = 'Arterial'</Filter><TextSymbolizer face_name="DejaVu Sans Book" fill="#ffffff" halo_fill="#fb7505" halo_radius="8" max_char_angle_delta="20" min_distance="100" name="HBLOCK" placement="point" size="12" spacing="400" /></Rule>
+        </Style>
+    <Layer name="layer 10" srs="+init=epsg:26910" status="on">
+        <StyleName>line style 6</StyleName>
+        <StyleName>text style 8 (HBLOCK)</StyleName>
+        <Datasource>
+            <Parameter name="file">./data/shape_city_streets/public_streets.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+</Map>

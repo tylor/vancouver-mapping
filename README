@@ -1,5 +1,16 @@
 This is some configuration files used to create a nice Vancouver map using Open Data and Mapnik.
 
+Recomended tools:
+- Mapnik
+- Quantum GIS (with Quantumnik plugin)
+- Cascadenik
+- TileLite
+
+To compile and run:
+- Compile with Cascadenik: cascadenik-compile.py vancouver-light.mml > vancouver-light-compiled.xml
+- Run with TileLite: liteserv.py -b 2048 vancouver-light-compiled.xml
+- Open map.html in a browser and it will connect to TileLite and show your tiles!
+
 Data used:
 - Local area boundary data: http://data.vancouver.ca/datacatalogue/localAreaBoundary.htm
 - Building Footprints 1999: http://data.vancouver.ca/datacatalogue/buildingFootprint1999.htm
