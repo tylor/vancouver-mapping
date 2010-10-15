@@ -1,4 +1,4 @@
-This is some configuration files used to create a nice Vancouver map using Open Data and Mapnik.
+This repository contains configuration files used to create a nice Vancouver map using Open Data and Mapnik. Here is what vancouver-light-compiled.xml looks like: http://twitpic.com/2xqcrq
 
 Recomended tools:
 - Mapnik
