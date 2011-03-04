@@ -1,7 +1,7 @@
 This repository contains configuration files used to create a nice Vancouver map using Open Data and Mapnik. Here is what vancouver-light-compiled.xml looks like: http://twitpic.com/2xqcrq
 
 ![Picture of a Vancouver
-tileset](http://s3.amazonaws.com/twitpic/photos/large/177589286.png?AWSAccessKeyId=0ZRYP5X5F6FSMBCCSE82&Expires=1299009445&Signature=vtDNnMu26lAm24I6Or8B6ZNxXEo%3D)
+tileset](https://github.com/tylor/vancouver-mapping/raw/master/vancouver-light-compiled.png)
 
 Recomended tools:
 
